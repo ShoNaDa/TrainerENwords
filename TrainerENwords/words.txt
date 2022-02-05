@@ -1,0 +1,153 @@
+Skip to content
+Why GitHub? 
+Team
+Enterprise
+Explore 
+Marketplace
+Pricing 
+Search
+Sign in
+Sign up
+ShoNaDa
+/
+Trainer
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Trainer/Trainer/Trainer/words.txt
+
+locadm говно
+Latest commit cb9e16f 2 days ago
+ History
+ 0 contributors
+110 lines (110 sloc)  1.88 KB
+   
+Father Отец
+Near Около
+House Дом
+Cat Кот
+Dog Собака
+Picture Картина
+New Новый
+Work Работа
+Little Немного
+Only Только
+Man Мужчина
+Back Назад
+Our Наш
+Me Мне
+Name Имя
+Think Думать
+Boy Мальчик
+Way Путь
+Use Использовать
+Long Длинный
+Make Делать
+Thing Вещь
+Look Смотреть
+Two Два
+Number Номер
+People Люди
+Water Вода
+First Первый
+Now Сейчас
+Page Страница
+Country Страна
+School Школа
+Answer Ответ
+Plant Растение
+Food Еда
+Sun Солнце
+Four Четыре
+Between Между
+Eye Глаз
+Never Никогда
+Last Последний
+City Город
+Tree Дерево
+Farm Ферма
+Hard Тяжелый
+Start Начинать
+Story История
+Far Далеко
+Left Лево
+Late Поздно
+Run Бежать
+Night Ночь
+Real Реальный
+Life Жизнь
+Book Книга
+Science Наука
+Room Комната
+Fish Рыба
+Once Однажды
+Horse Лошадь
+Face Лицо
+Main Главный
+White Белый
+Children Дети
+Example Пример
+Paper Бумага
+Music Музыка
+River Река
+Car Машина
+Girl Девочка
+Red Красный
+Body Тело
+Family Семья
+Song Песня
+Black Черный
+Wind Ветер
+Fire Огонь
+King Король
+Wheel Колесо
+Full Полный
+Moon Луна
+Island Остров
+Foot Нога
+Thousand Тысяча
+Game Игра
+Miss Скучать
+Town Город
+Cry Плакать
+Star Звезда
+Week Неделя
+Green Зеленый
+Ocean Океан
+Strong Сильный
+True Правда
+Hour Час
+Five Пять
+West Запад
+Verb Глагол
+Six Шесть
+Table Стол
+Morning Утро
+Ten Десять
+War Война
+Love Любовь
+Money Деньги
+Map Карта
+Rule Правило
+Road Дорога
+Cold Холодный
+Voice Голос
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

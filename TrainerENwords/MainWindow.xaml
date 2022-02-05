@@ -1,0 +1,38 @@
+﻿<Window x:Class="TrainerENwords.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Trainer" 
+        Height="450" 
+        Width="800"
+        Background="#FFE4ED"
+        WindowStartupLocation="CenterScreen"
+        Icon="Pictures\en.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- Labels -->
+        <Label Width="500" Margin="0,5,0,75" Background="#FFCCCC" FontFamily="Cambria" Content="Тренажёр" FontSize="37" Foreground="#00488C" 
+               HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" BorderThickness="2" BorderBrush="Azure"/>
+        <Label Width="500" Margin="0,75,0,5" Background="#FFCCCC" Content="для изучения английских слов" FontFamily="Cambria" FontSize="30" Foreground="#00488C" 
+               HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontWeight="ExtraLight" BorderThickness="2" BorderBrush="Azure"/>
+        <!-- Images -->
+        <Image Source="Pictures\books.png" Grid.Row="1" Margin="250,5,250,5" MinHeight="50" MinWidth="50"/>
+        <Image Source="Pictures\films.png" Grid.Row="1" Margin="10,5,500,5" HorizontalAlignment="Left" MinHeight="50" MinWidth="50"/>
+        <Image Source="Pictures\micro.png" Grid.Row="1" Margin="500,5,10,5" HorizontalAlignment="Right" MinHeight="50" MinWidth="50"/>
+        <!-- Buttons -->
+        <Button Height="120" Width="120" Grid.Row="2" Margin="0,0,0,0" Content="Начать" Click="ButtonStart_Clicked" 
+                     FontWeight="Bold" FontStyle="Italic" FontFamily="Technical Italic" FontSize="27" HorizontalAlignment="Center" Foreground="Black" Background="#C7ADB5">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="100"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
