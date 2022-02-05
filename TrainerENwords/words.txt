@@ -1,33 +1,3 @@
-Skip to content
-Why GitHub? 
-Team
-Enterprise
-Explore 
-Marketplace
-Pricing 
-Search
-Sign in
-Sign up
-ShoNaDa
-/
-Trainer
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Trainer/Trainer/Trainer/words.txt
-
-locadm говно
-Latest commit cb9e16f 2 days ago
- History
- 0 contributors
-110 lines (110 sloc)  1.88 KB
-   
 Father Отец
 Near Около
 House Дом
@@ -138,16 +108,3 @@ Rule Правило
 Road Дорога
 Cold Холодный
 Voice Голос
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
