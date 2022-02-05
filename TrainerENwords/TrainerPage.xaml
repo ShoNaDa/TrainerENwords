@@ -21,7 +21,7 @@
                    HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" BorderThickness="2" BorderBrush="Azure"/>
         <!-- TextBoxes -->
         <TextBox Grid.Row="2" Margin="0,15,0,15" Width="300" BorderThickness="2" BorderBrush="Azure" Background="#FFCCCC" Text="Номер" FontFamily="Cambria" FontSize="25"
-                 HorizontalAlignment="Center" HorizontalContentAlignment="Center" Padding="0,5,0,0" Foreground="Gray" x:Name="NumberTextBox"/>
+                 MouseDown="NumberTextBox_MouseDown" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Padding="0,5,0,0" Foreground="Gray" x:Name="NumberTextBox"/>
         <!-- ListViews -->
         <ListView x:Name="ListViewEN" Grid.Row="1" Margin="10,10,0,10" Width="350" BorderThickness="2" BorderBrush="Azure" Background="#FFCCCC" FontFamily="Cambria" FontSize="25"
                   HorizontalAlignment="Left" HorizontalContentAlignment="Center" Padding="0,5,0,0" />

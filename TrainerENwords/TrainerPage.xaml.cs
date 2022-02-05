@@ -28,12 +28,6 @@ namespace TrainerENwords
         {
             InitializeComponent();
 
-            //меняем цвет текста TextBox и убираем текст
-            if (NumberTextBox.IsFocused)
-            {
-                NumberTextBox.Foreground = Brushes.Black;
-            }
-
             //если файл существует
             if (File.Exists(textPath))
             {
@@ -99,6 +93,12 @@ namespace TrainerENwords
                     line = sr.ReadLine();
                 }
             }
+        }
+
+        private void NumberTextBox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //меняем цвет текста TextBox и убираем текст
+            NumberTextBox.Foreground = Brushes.Black;
         }
     }
 }
