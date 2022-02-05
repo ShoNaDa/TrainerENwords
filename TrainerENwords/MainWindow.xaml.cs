@@ -29,14 +29,17 @@ namespace TrainerENwords
 
         private void ButtonStart_Clicked(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(@"C:\Users\gr692_bvv\source\repos\TrainerEN\TrainerEN\words.txt"))
-            {
-                
-            }
-            else
-            {
-                MessageBox.Show("nope");
-            }
+            //if (File.Exists(@"C:\Users\gr692_bvv\source\repos\TrainerEN\TrainerEN\words.txt"))
+            //{
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("nope");
+            //}
+            var trainerPage = new TrainerPage();
+            trainerPage.Show();
+            Close();
         }
     }
 }
