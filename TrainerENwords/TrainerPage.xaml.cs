@@ -13,7 +13,7 @@ namespace TrainerENwords
     {
         //string
         string line;
-        string textPath = @"C:\Users\gr692_bvv\source\repos\TrainerENwords\TrainerENwords\words.txt";
+        string textPath = @"C:\Users\vovab\Source\Repos\TrainerENwords\TrainerENwords\words.txt";
 
         //mass
         string[] wordsEN = new string[10];
@@ -21,24 +21,37 @@ namespace TrainerENwords
 
         //list
         List<string> RndWordsRU = new List<string>();
+        List<short> Numbers = new List<short>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         //int
-        static int i = 0;
+        int countOfString = 0;
+        int countOfWords = 1;
+        public static int result = 0;
+
+        //bool
+        bool isReady = false;
+
         public TrainerPage()
         {
             InitializeComponent();
+
+            //обнуляем результат на всякий случай
+            result = 0;
 
             //если файл существует
             if (File.Exists(textPath))
             {
                 //Если строки кончились, но массивы еще не заполнены, то вызываем функцию снова
-                while (i != 10)
+                while (countOfString != 10)
                 {
                     CreateMassENRU();
                 }
 
                 //Выводим на экран 10 англ. слов
-                ListViewEN.ItemsSource = wordsEN;
+                for (int i = 0; i < 10; i++)
+                {
+                    ListViewEN.Items.Add(Convert.ToString(i + 1) + ". " + wordsEN[i]);
+                }
 
                 //Рандомим порядок русс. слов
                 while (RndWordsRU.Count != 10)
@@ -53,11 +66,10 @@ namespace TrainerENwords
                 }
 
                 //Выводим на экран 10 русс. слов
-                ListViewRU.ItemsSource = RndWordsRU;
-            }
-            else
-            {
-                MessageBox.Show("nope");
+                for (int i = 0; i < 10; i++)
+                {
+                    ListViewRU.Items.Add(Convert.ToString(i + 1) + ". " + RndWordsRU[i]);
+                }
             }
         }
 
@@ -72,21 +84,21 @@ namespace TrainerENwords
                 Random rnd = new Random();
 
                 //Рандом по первой строке
-                if (rnd.Next(0, 2) != 0 && i == 0)
+                if (rnd.Next(0, 2) != 0 && countOfString == 0)
                 {
                     wordsEN[0] = line.Split(' ')[0];
                     wordsRU[0] = line.Split(' ')[1];
-                    i++;
+                    countOfString++;
                 }
 
                 //Рандом по остальным строкам файла
-                while (line != null && i < 10)
+                while (line != null && countOfString < 10)
                 {
                     if (rnd.Next(0, 2) != 0)
                     {
-                        wordsEN[i] = line.Split(' ')[0];
-                        wordsRU[i] = line.Split(' ')[1];
-                        i++;
+                        wordsEN[countOfString] = line.Split(' ')[0];
+                        wordsRU[countOfString] = line.Split(' ')[1];
+                        countOfString++;
                     }
 
                     //переходим на следующую строку
@@ -95,10 +107,76 @@ namespace TrainerENwords
             }
         }
 
-        private void NumberTextBox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void NumberTextBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            //меняем цвет текста TextBox и убираем текст
-            NumberTextBox.Foreground = Brushes.Black;
+            if (!isReady)
+            {
+                //меняем цвет текста TextBox и убираем текст
+                NumberTextBox.Foreground = Brushes.Black;
+                NumberTextBox.Text = string.Empty;
+
+                //чтобы только один раз работало
+                isReady = true;
+            }
+        }
+
+        private void ButtonAsk_Click(object sender, RoutedEventArgs e)
+        {
+            //проверяем вписал ли пользователь именно цифру от 1 до 10
+            bool isNumber = false;
+            foreach (int item in Numbers)
+            {
+                if (NumberTextBox.Text == Convert.ToString(item))
+                {
+                    isNumber = true;
+                }
+            }
+
+            if (isNumber)
+            {
+                //получаем выбранное слово
+                string answer = Convert.ToString(ListViewRU.Items[Convert.ToInt32(NumberTextBox.Text) - 1]).Split('.')[1].Trim();
+
+                //проверяем - правильно ли ответил пользователь
+                if (wordsRU[countOfWords - 1] == answer)
+                {
+                    if (countOfWords != 10)
+                    {
+                        MessageBox.Show("Правильно! Переходим к следующему слову");
+                        countOfWords++;
+                        result++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Правильно!");
+                        result++;
+
+                        var endPage = new EndPage();
+                        endPage.Show();
+                        Close();
+                    }
+                }
+                else
+                {
+                    if (countOfWords != 10)
+                    {
+                        MessageBox.Show("Неправильно! Правильный ответ - " + wordsRU[countOfWords - 1]);
+                        countOfWords++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неправильно!");
+
+                        var endPage = new EndPage();
+                        endPage.Show();
+                        Close();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите номер");
+            }
         }
     }
 }
