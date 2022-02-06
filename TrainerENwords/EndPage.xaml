@@ -20,7 +20,7 @@
         <Label Width="500" Margin="0,40,0,40" Background="#FFCCCC" Content="Тест пройден!" FontFamily="Cambria" FontSize="40" Foreground="#00488C" 
                    HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" BorderThickness="2" BorderBrush="Azure"/>
         <Label Grid.Row="1" Width="770" Margin="15,40,15,40" Background="#FFCCCC" x:Name="LabelResult" FontFamily="Cambria" FontSize="20" Foreground="Black" 
-                   HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontStyle="Italic" BorderThickness="2" BorderBrush="Azure" Padding="0,5,0,0"/>
+                   HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontStyle="Italic" BorderThickness="2" BorderBrush="Azure" Padding="0,10,0,0"/>
         <!-- Buttons -->
         <Button x:Name="ButtonAgain" Grid.Row="2" Width="300" HorizontalAlignment="Left" Margin="30,30,0,30" HorizontalContentAlignment="Center" FontSize="35" Content="Продолжить"
                 Click="ButtonAgain_Click" BorderThickness="2" BorderBrush="Azure" Background="#FFCCCC" FontFamily="Cambria" Padding="0,0,0,5"/>

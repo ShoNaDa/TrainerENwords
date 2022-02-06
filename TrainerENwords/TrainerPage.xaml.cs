@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace TrainerENwords
@@ -120,7 +121,7 @@ namespace TrainerENwords
             }
         }
 
-        private void ButtonAsk_Click(object sender, RoutedEventArgs e)
+        public void ButtonAsk_Click(object sender, RoutedEventArgs e)
         {
             //проверяем вписал ли пользователь именно цифру от 1 до 10
             bool isNumber = false;
@@ -176,6 +177,14 @@ namespace TrainerENwords
             else
             {
                 MessageBox.Show("Выберите номер");
+            }
+        } 
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ButtonAsk_Click(sender, e);
             }
         }
     }
