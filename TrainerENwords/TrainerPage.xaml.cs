@@ -14,15 +14,15 @@ namespace TrainerENwords
     {
         //string
         string line;
-        string textPath = @"C:\Users\vovab\Source\Repos\TrainerENwords\TrainerENwords\words.txt";
+        readonly string textPath = MainWindow.pathWithoutNameTxt + "words.txt";
 
         //mass
-        string[] wordsEN = new string[10];
-        string[] wordsRU = new string[10];
+        readonly string[] wordsEN = new string[10];
+        readonly string[] wordsRU = new string[10];
 
         //list
-        List<string> RndWordsRU = new List<string>();
-        List<short> Numbers = new List<short>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        readonly List<string> RndWordsRU = new List<string>();
+        readonly List<short> Numbers = new List<short>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
         //int
         int countOfString = 0;
