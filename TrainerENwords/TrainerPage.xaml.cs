@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -28,6 +29,7 @@ namespace TrainerENwords
         int countOfString = 0;
         int countOfWords = 1;
         public static int result = 0;
+        int countOfAnsweredWord = 1;
 
         //bool
         bool isReady = false;
@@ -51,7 +53,7 @@ namespace TrainerENwords
                 //Выводим на экран 10 англ. слов
                 for (int i = 0; i < 10; i++)
                 {
-                    ListViewEN.Items.Add(Convert.ToString(i + 1) + ". " + wordsEN[i]);
+                    ListViewEN.Items.Add(new ListViewItem { Content = Convert.ToString(i + 1) + ". " + wordsEN[i]});
                 }
 
                 //Рандомим порядок русс. слов
@@ -69,9 +71,13 @@ namespace TrainerENwords
                 //Выводим на экран 10 русс. слов
                 for (int i = 0; i < 10; i++)
                 {
-                    ListViewRU.Items.Add(Convert.ToString(i + 1) + ". " + RndWordsRU[i]);
+                    ListViewRU.Items.Add(new ListViewItem { Content = Convert.ToString(i + 1) + ". " + RndWordsRU[i] });
                 }
             }
+
+            //меняем цвет фона у первого элемента
+            var selectedItem = (ListBoxItem)ListViewEN.Items[0];
+            selectedItem.Background = new SolidColorBrush(Color.FromRgb(200, 97, 211));
         }
 
         private void CreateMassENRU()
@@ -84,22 +90,29 @@ namespace TrainerENwords
                 //Немного рандома
                 Random rnd = new Random();
 
-                //Рандом по первой строке
-                if (rnd.Next(0, 2) != 0 && countOfString == 0)
-                {
-                    wordsEN[0] = line.Split(' ')[0];
-                    wordsRU[0] = line.Split(' ')[1];
-                    countOfString++;
-                }
-
-                //Рандом по остальным строкам файла
+                //Рандом по строкам файла
                 while (line != null && countOfString < 10)
                 {
-                    if (rnd.Next(0, 2) != 0)
+                    if (rnd.Next(0, 4) == 0)
                     {
-                        wordsEN[countOfString] = line.Split(' ')[0];
-                        wordsRU[countOfString] = line.Split(' ')[1];
-                        countOfString++;
+                        bool isExist = false;
+
+                        //проверяем - нет ли такого слова уже с массиве
+                        foreach (string item in wordsEN)
+                        {
+                            if (line.Split(' ')[0] == item)
+                            {
+                                isExist = true;
+                                break;
+                            }
+                        }
+
+                        if (!isExist)
+                        {
+                            wordsEN[countOfString] = line.Split(' ')[0];
+                            wordsRU[countOfString] = line.Split(' ')[1];
+                            countOfString++;
+                        }
                     }
 
                     //переходим на следующую строку
@@ -177,6 +190,23 @@ namespace TrainerENwords
             else
             {
                 MessageBox.Show("Выберите номер");
+            }
+
+            //Очистка TextBox
+            NumberTextBox.Text = String.Empty;
+
+            
+            //перекраска фона некст слова
+            var selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord];
+            selectedItem.Background = new SolidColorBrush(Color.FromRgb(200, 97, 211));
+
+            //возвращаем фон предыдущего слова
+            selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord - 1];
+            selectedItem.Background = new SolidColorBrush(Color.FromRgb(255, 204, 204));
+
+            if (countOfAnsweredWord != 9)
+            {
+                countOfAnsweredWord++;
             }
         } 
 
