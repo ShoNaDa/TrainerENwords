@@ -24,6 +24,7 @@ namespace TrainerENwords
         //list
         readonly List<string> RndWordsRU = new List<string>();
         readonly List<short> Numbers = new List<short>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        public static List<string> WordsWasUsed = new List<string>(); 
 
         //int
         int countOfString = 0;
@@ -107,11 +108,13 @@ namespace TrainerENwords
                             }
                         }
 
-                        if (!isExist)
+                        if (!isExist && !WordsWasUsed.Contains(line))
                         {
                             wordsEN[countOfString] = line.Split(' ')[0];
                             wordsRU[countOfString] = line.Split(' ')[1];
+
                             countOfString++;
+                            WordsWasUsed.Add(line);
                         }
                     }
 
@@ -149,7 +152,7 @@ namespace TrainerENwords
             if (isNumber)
             {
                 //получаем выбранное слово
-                string answer = Convert.ToString(ListViewRU.Items[Convert.ToInt32(NumberTextBox.Text) - 1]).Split('.')[1].Trim();
+                string answer = Convert.ToString(ListViewRU.Items[Convert.ToInt32(NumberTextBox.Text) - 1]).Split(':')[1].Split('.')[1].Trim();
 
                 //проверяем - правильно ли ответил пользователь
                 if (wordsRU[countOfWords - 1] == answer)
@@ -186,6 +189,19 @@ namespace TrainerENwords
                         Close();
                     }
                 }
+
+                //перекраска фона некст слова
+                var selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord];
+                selectedItem.Background = new SolidColorBrush(Color.FromRgb(200, 97, 211));
+
+                //возвращаем фон предыдущего слова
+                selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord - 1];
+                selectedItem.Background = new SolidColorBrush(Color.FromRgb(255, 204, 204));
+
+                if (countOfAnsweredWord != 9)
+                {
+                    countOfAnsweredWord++;
+                }
             }
             else
             {
@@ -194,19 +210,6 @@ namespace TrainerENwords
 
             //Очистка TextBox
             NumberTextBox.Text = string.Empty;
-            
-            //перекраска фона некст слова
-            var selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord];
-            selectedItem.Background = new SolidColorBrush(Color.FromRgb(200, 97, 211));
-
-            //возвращаем фон предыдущего слова
-            selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord - 1];
-            selectedItem.Background = new SolidColorBrush(Color.FromRgb(255, 204, 204));
-
-            if (countOfAnsweredWord != 9)
-            {
-                countOfAnsweredWord++;
-            }
         } 
 
         private void Grid_KeyDown(object sender, KeyEventArgs e)

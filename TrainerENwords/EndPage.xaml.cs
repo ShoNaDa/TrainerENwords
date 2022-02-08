@@ -17,6 +17,12 @@ namespace TrainerENwords
 
             LabelResult.Content = "Правильных ответов - " + Convert.ToString(TrainerPage.result) + 
                 ". Процент правильно переведенных слов - " + Convert.ToString(proc) + "%";
+
+            //проверяем, если слова закончились, тогда только закончить
+            if (TrainerPage.WordsWasUsed.Count == 200)
+            {
+                ButtonAgain.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ButtonAgain_Click(object sender, RoutedEventArgs e)
