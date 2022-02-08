@@ -17,7 +17,7 @@
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <!-- Labels -->
-        <Label Width="500" Margin="0,15,0,15" Background="#FFCCCC" Content="Выберите номер перевода" FontFamily="Cambria" FontSize="25" Foreground="#00488C" 
+        <Label Width="500" Margin="0,15,0,15" Background="#FFCCCC" Content="Напишите номер перевода" FontFamily="Cambria" FontSize="25" Foreground="#00488C" 
                    HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" BorderThickness="2" BorderBrush="Azure"/>
         <!-- TextBoxes -->
         <TextBox Grid.Row="2" Margin="0,15,0,15" Width="300" BorderThickness="2" BorderBrush="Azure" Background="#FFCCCC" Text="Номер" FontFamily="Cambria" FontSize="25"
