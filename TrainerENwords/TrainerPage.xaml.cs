@@ -193,8 +193,7 @@ namespace TrainerENwords
             }
 
             //Очистка TextBox
-            NumberTextBox.Text = String.Empty;
-
+            NumberTextBox.Text = string.Empty;
             
             //перекраска фона некст слова
             var selectedItem = (ListBoxItem)ListViewEN.Items[countOfAnsweredWord];
