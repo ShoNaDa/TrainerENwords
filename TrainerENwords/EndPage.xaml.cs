@@ -12,17 +12,22 @@ namespace TrainerENwords
         {
             InitializeComponent();
 
-            //считаем процент
-            double proc = TrainerPage.result * 100 / 10;
-
             LabelResult.Content = "Правильных ответов - " + Convert.ToString(TrainerPage.result) + 
-                ". Процент правильно переведенных слов - " + Convert.ToString(proc) + "%";
+                ". Процент правильно переведенных слов - " + Convert.ToString(Procent(TrainerPage.result)) + "%";
 
             //проверяем, если слова закончились, тогда только закончить
             if (TrainerPage.WordsWasUsed.Count == 200)
             {
                 ButtonAgain.Visibility = Visibility.Hidden;
             }
+        }
+
+        public double Procent(int res)
+        {
+            //считаем процент
+            double proc = res * 100 / 10;
+
+            return proc;
         }
 
         private void ButtonAgain_Click(object sender, RoutedEventArgs e)

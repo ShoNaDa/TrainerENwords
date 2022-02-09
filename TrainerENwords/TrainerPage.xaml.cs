@@ -81,7 +81,7 @@ namespace TrainerENwords
             selectedItem.Background = new SolidColorBrush(Color.FromRgb(200, 97, 211));
         }
 
-        private void CreateMassENRU()
+        public void CreateMassENRU()
         {
             using (StreamReader sr = new StreamReader(textPath, System.Text.Encoding.UTF8))
             {
@@ -124,7 +124,22 @@ namespace TrainerENwords
             }
         }
 
-        private void NumberTextBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        public static bool IsNumber(string text, List<short> Numbers)
+        {
+            bool isNumber = false;
+
+            foreach (int item in Numbers)
+            {
+                if (text == Convert.ToString(item))
+                {
+                    isNumber = true;
+                }
+            }
+
+            return isNumber;
+        }
+
+        private void NumberTextBox_MouseEnter(object sender, MouseEventArgs e)
         {
             if (!isReady)
             {
@@ -137,25 +152,25 @@ namespace TrainerENwords
             }
         }
 
+        public static bool IsRight(string answer, string word)
+        {
+            if (word == answer)
+            {
+                return true;
+            }
+            else
+            {
+                return false;  
+            }
+        }
+
         public void ButtonAsk_Click(object sender, RoutedEventArgs e)
         {
             //проверяем вписал ли пользователь именно цифру от 1 до 10
-            bool isNumber = false;
-            foreach (int item in Numbers)
+            if (IsNumber(NumberTextBox.Text, Numbers))
             {
-                if (NumberTextBox.Text == Convert.ToString(item))
-                {
-                    isNumber = true;
-                }
-            }
-
-            if (isNumber)
-            {
-                //получаем выбранное слово
-                string answer = Convert.ToString(ListViewRU.Items[Convert.ToInt32(NumberTextBox.Text) - 1]).Split(':')[1].Split('.')[1].Trim();
-
                 //проверяем - правильно ли ответил пользователь
-                if (wordsRU[countOfWords - 1] == answer)
+                if (IsRight(Convert.ToString(ListViewRU.Items[Convert.ToInt32(NumberTextBox.Text) - 1]).Split(':')[1].Split('.')[1].Trim(), wordsRU[countOfWords - 1]))
                 {
                     if (countOfWords != 10)
                     {
