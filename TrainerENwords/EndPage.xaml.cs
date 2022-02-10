@@ -22,7 +22,7 @@ namespace TrainerENwords
             }
         }
 
-        public double Procent(int res)
+        public static double Procent(int res)
         {
             //считаем процент
             double proc = res * 100 / 10;

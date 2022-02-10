@@ -10,69 +10,51 @@ namespace TrainerTest
         [TestMethod]
         public void TestIsNumber()
         {
-            string text = "1231";
             List<short> Numbers = new List<short>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             //#1
-            bool expected = true;
-            bool actual = TrainerPage.IsNumber(text, Numbers);
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreNotEqual(true, TrainerPage.IsNumber("1231", Numbers));
 
             //#2
-            text = "2";
-            actual = TrainerPage.IsNumber(text, Numbers);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(true, TrainerPage.IsNumber("2", Numbers));
 
             //#3
-            text = "b";
-            actual = TrainerPage.IsNumber(text, Numbers);
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreNotEqual(true, TrainerPage.IsNumber("b", Numbers));
+
+            //#4
+            Assert.AreEqual(true, TrainerPage.IsNumber("10", Numbers));
         }
 
         [TestMethod]
         public void TestIsRight()
         {
-            string answer = "Кот";
-            string word = "Кот";
-
             //#1
-            bool expected = true;
-            bool actual = TrainerPage.IsRight(answer, word);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(true, TrainerPage.IsRight("Кот", "Кот"));
 
             //#2
-            answer = "Отец";
-            actual = TrainerPage.IsRight(answer, word);
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreNotEqual(true, TrainerPage.IsRight("Отец", "Кот"));
 
             //#3
-            answer = "Между";
-            word = "Первый";
-            actual = TrainerPage.IsRight(answer, word);
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreNotEqual(true, TrainerPage.IsRight("Между", "Первый"));
+
+            //#4
+            Assert.AreEqual(true, TrainerPage.IsRight("Отец", "Отец"));
         }
 
         [TestMethod]
         public void TestProcent()
         {
-            int res = 10;
-
             //#1
-            double expected = 100;
-            EndPage endPage = new EndPage();
-            double actual = endPage.Procent(res);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(100, EndPage.Procent(10));
 
             //#2
-            res = 3;
-            expected = 30;
-            actual = endPage.Procent(res);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(30, EndPage.Procent(3));
 
             //#3
-            res = 4;
-            actual = endPage.Procent(res);
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreNotEqual(30, EndPage.Procent(4));
+
+            //#4
+            Assert.AreNotEqual(10, EndPage.Procent(7));
         }
     }
 }
